@@ -60,9 +60,9 @@ public class Teste {
     static void imprimicalculadora (int operacao, double resultado, double x, double y){
         HashMap<Integer, String> mapOperacao = new HashMap<>();
         mapOperacao.put(1, " somado ");
-        mapOperacao.put(2, "subtraido");
-        mapOperacao.put(3, "multiplicado");
-        mapOperacao.put(4, "dividido");
+        mapOperacao.put(2, " subtraido ");
+        mapOperacao.put(3, " multiplicado ");
+        mapOperacao.put(4, " dividido ");
 
         System.out.println("\n O reultado de " + x + mapOperacao.get(operacao) + "por " + y + " e igual a " + resultado + "\n");
 
