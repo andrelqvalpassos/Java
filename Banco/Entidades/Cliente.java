@@ -30,12 +30,13 @@ public class Cliente {
     }
 
     // Método construtor cheio
-    public Cliente(String nome, String cpf, String email, String telefone, Date dataNasc) {
+    public Cliente(String nome, String cpf, String email, String telefone, Date dataNasc, Endereco endereco) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.telefone = telefone;
         this.dataNasc = dataNasc;
+        this.endereco = endereco;
     }
 
     // Métodos Gets e Sets

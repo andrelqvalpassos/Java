@@ -25,10 +25,11 @@ public class Agencia {
         this.endereco = endereco;
     }
 
-    public Agencia(int numero, String telefone, String email) {
+    public Agencia(int numero, String telefone, String email, Endereco endereco) {
         this.numero = numero;
         this.telefone = telefone;
         this.email = email;
+        this.endereco = endereco;
     }
 
     public int getNumero() {
