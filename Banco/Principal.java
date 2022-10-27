@@ -16,5 +16,6 @@ public class Principal {
         Conta contaAndre = new Conta(10, andreCliente, agSenac, 200, 2000);
         System.out.println(contaAndre.getSaldo());
         System.out.println(agSenac.getNumero());
+        System.out.println(contaAndre);
     }
 }
