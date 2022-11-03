@@ -14,8 +14,8 @@ public class Principal {
         Agencia agSenac = new Agencia(191, "98234546", "senac@gmail.com", endSenac);
         Cliente andreCliente = new Cliente("André", "146397754-89", "andre@gmail.com", "987734121", new Date(10/12/2022), endCliente);
         Conta contaAndre = new Conta(10, andreCliente, agSenac, 200, 2000);
-        System.out.println(contaAndre.getSaldo());
-        System.out.println(agSenac.getNumero());
+        //System.out.println(contaAndre.getSaldo());
+        //System.out.println(agSenac.getNumero());
         System.out.println(contaAndre);
     }
 }

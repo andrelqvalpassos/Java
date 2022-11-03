@@ -1,14 +1,20 @@
 package Banco.Entidades;
 
-public class Conta  {
+import java.util.ArrayList;
+import java.util.Date;
+
+public class Conta {
     private int numero;
     private Cliente cliente;
     private Agencia agencia;
     private double saldo;
     private double limite;
     private boolean status;
+    private ArrayList<Transacao> transacoes;
+    private char getTransacao;
 
     public Conta() {
+        this.transacoes = new ArrayList<Transacao>();
     }
 
     public Conta(int numero, Cliente cliente, Agencia agencia, double saldo, double limite) {
@@ -20,39 +26,56 @@ public class Conta  {
         this.status = true;
     }
 
-        public boolean sacar(double valor){
-            if(this.saldo + this.limite >= valor){
-                this.saldo -= valor;
-                return true;
-            } else{
-                return false;
-            }
-            
-        }
-
-        public boolean depositar (double valor){
-            if(valor > 0){
-            this.saldo += valor;
-            return true; 
-            } else{
+    public boolean sacar(double valor) {
+        if (this.saldo + this.limite >= valor) {
+            this.saldo -= valor;
+            Transacao transSacar = new Transacao(TipoTransacao.DÉBITO, new Date(), valor, this.getCliente(), '-');
+            this.transacoes.add(transSacar);
+            return true;
+        } else {
             return false;
-            }
         }
 
-        public boolean tranferir(double valor, Conta contaFav){
-            if(contaFav != null){
-                if(this.saldo + this.limite >= valor){
-                    this.saldo -=valor;
-                    contaFav.saldo += valor;
-                    return true;
-                } else{
-                    return false;
-                }
-            } else{
+    }
+
+    public boolean depositar(double valor) {
+        if (valor > 0) {
+            this.saldo += valor;
+            Transacao transDepo = new Transacao(TipoTransacao.DEPÓSITO, new Date(), valor, this.getCliente(),
+                    this.getTransacao);
+            this.transacoes.add(transDepo);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean tranferir(double valor, Conta contaFav) {
+        if (contaFav != null) {
+            if (this.saldo + this.limite >= valor) {
+                this.saldo -= valor;
+                contaFav.saldo += valor;
+                Transacao transEmite = new Transacao(TipoTransacao.TRANSFERÊNCIA, new Date(), valor, this.getCliente(),
+                        '-');
+                contaFav.transacoes.add(transEmite);
+                return true;
+            } else {
                 return false;
             }
+        } else {
+            return false;
         }
+    }
 
+    public String extrato(){
+        String = "";
+        extrato += this.toString() + "\n";
+        for (Transacao trans : this.transacoes){
+            extrato += trans.toString() + "\n";
+            
+
+        };
+    }
     public int getNumero() {
         return numero;
     }
@@ -89,7 +112,7 @@ public class Conta  {
         this.status = status;
     }
 
-    public String toString(){
-        return " Conta de " + this.cliente.getNome() + " numero de " + this.numero;
+    public String toString() {
+        return "Conta de " + this.cliente.getNome() + " numero " + this.numero;
     }
 }
