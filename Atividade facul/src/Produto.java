@@ -1,12 +1,19 @@
-package atividades;
+package src;
 
 public class Produto {
     private int codigo;
     private String nome;
     private float valor;
     private Fornecedor fornecedor;
-    
+
     public Produto() {
+    }
+
+    public Produto(int codigo, String nome, Float valor, Fornecedor fornecedor) {
+        this.codigo = codigo;
+        this.nome = nome;
+        this.valor = valor;
+        this.fornecedor = fornecedor;
     }
 
     public int getCodigo() {
@@ -41,4 +48,3 @@ public class Produto {
         this.fornecedor = fornecedor;
     }
 }
-

@@ -1,4 +1,4 @@
-package atividades;
+package src;
 
 public class Fornecedor {
     private String CNPJ;
