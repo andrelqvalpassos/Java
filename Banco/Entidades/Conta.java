@@ -67,15 +67,17 @@ public class Conta {
         }
     }
 
-    public String extrato(){
-        String = "";
+    public String extrato() {
+        String extrato = "";
         extrato += this.toString() + "\n";
-        for (Transacao trans : this.transacoes){
+        for (Transacao trans : this.transacoes) {
             extrato += trans.toString() + "\n";
-            
-
-        };
+        }
+        extrato += "Saldo: R$ " + Math.round(this.saldo) + " | " + "Saldo Disponível R$ "
+                + Math.round(this.saldo + this.limite);
+        return extrato;
     }
+
     public int getNumero() {
         return numero;
     }
